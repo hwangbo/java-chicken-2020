@@ -27,4 +27,17 @@ public class Bill {
 
         return chickenCount >= 10;
     }
+
+    public double totalPrice(int payment) {
+        int totalPrice = bill.keySet().stream().mapToInt(menu -> menu.price(bill.get(menu))).sum();
+
+        if (payment == 2) {
+            return totalPrice * 0.9;
+        }
+        return totalPrice;
+    }
+
+    public boolean isEmpty() {
+        return this.bill.isEmpty();
+    }
 }

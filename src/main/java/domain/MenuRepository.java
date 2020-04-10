@@ -6,6 +6,7 @@ import java.util.List;
 
 public class MenuRepository {
     private static final List<Menu> menus = new ArrayList<>();
+    public static final String INVALID_MENU_NUMBER_ERROR_MESSAGE = "번호에 맞는 메뉴가 없습니다.";
 
     static {
         menus.add(new Menu(1, "후라이드", Category.CHICKEN, 16_000));
@@ -20,5 +21,12 @@ public class MenuRepository {
 
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
+    }
+
+    public static Menu of(int number) {
+        return menus.stream()
+                .filter(menu -> menu.isMenu(number))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(INVALID_MENU_NUMBER_ERROR_MESSAGE));
     }
 }

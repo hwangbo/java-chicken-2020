@@ -34,4 +34,10 @@ class TableTest {
 
         assertThat(table.bill()).isEqualTo(expected);
     }
+
+    @DisplayName("테이블에 주문이 없는지 확인하는 메서드 테스트")
+    @Test
+    public void isEmpty() {
+        assertTrue(new Table(1).isEmpty());
+    }
 }

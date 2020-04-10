@@ -22,6 +22,10 @@ public class Table {
         return this.bill.getBill();
     }
 
+    public boolean isEmpty() {
+        return this.bill.isEmpty();
+    }
+
     @Override
     public String toString() {
         return Integer.toString(number);

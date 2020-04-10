@@ -17,4 +17,14 @@ public class Bill {
     public Map<Menu, Integer> getBill() {
         return bill;
     }
+
+    public boolean isOverTenChickens() {
+        int chickenCount = bill.keySet()
+                .stream()
+                .filter(Menu::isChicken)
+                .mapToInt(menu -> bill.get(menu))
+                .sum();
+
+        return chickenCount >= 10;
+    }
 }

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,5 +38,11 @@ class TableTest {
     @Test
     public void isEmpty() {
         assertTrue(new Table(1).isEmpty());
+    }
+
+    @DisplayName("테이블 번호를 문자열로 반환하는 toString 테스트")
+    @Test
+    public void testToString() {
+        assertThat(new Table(1).toString()).isEqualTo("1");
     }
 }

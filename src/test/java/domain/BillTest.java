@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BillTest {
     private static List<Menu> menus = MenuRepository.menus();
@@ -32,6 +32,7 @@ class BillTest {
 
         bill.order(menus.get(0), 1);
 
+        assertThat(bill.totalPrice(1)).isEqualTo(16000);
         assertThat(bill.totalPrice(2)).isEqualTo(16000 * 0.9);
     }
 }

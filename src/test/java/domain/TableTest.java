@@ -40,6 +40,27 @@ class TableTest {
         assertTrue(new Table(1).isEmpty());
     }
 
+    @DisplayName("메뉴의 갯수만큼의 가격을 반환하는 메서드 테스트")
+    @Test
+    public void menuPrice() {
+        Table table = TableRepository.of(1);
+
+        table.orderMenu(MenuRepository.of(1), 1);
+
+        assertThat(table.menuPrice(MenuRepository.of(1))).isEqualTo(16000);
+    }
+
+    @DisplayName("테이블의 지불 금액을 반환하는 메서드 테스트")
+    @Test
+    public void totalPrice() {
+        Table table = TableRepository.of(1);
+
+        table.orderMenu(MenuRepository.of(1), 10);
+
+        assertThat(table.totalPrice(1)).isEqualTo(150000);
+        assertThat(table.totalPrice(2)).isEqualTo(135000);
+    }
+
     @DisplayName("테이블 번호를 문자열로 반환하는 toString 테스트")
     @Test
     public void testToString() {

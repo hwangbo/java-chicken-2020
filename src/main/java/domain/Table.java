@@ -18,12 +18,24 @@ public class Table {
         this.bill.order(menu, count);
     }
 
-    public Map<Menu, Integer> bill() {
-        return this.bill.getBill();
+    public boolean isEmpty() {
+        return bill.isEmpty();
     }
 
-    public boolean isEmpty() {
-        return this.bill.isEmpty();
+    public int menuPrice(Menu menu) {
+        return bill.menuPrice(menu);
+    }
+
+    public int totalPrice(int payment) {
+        return bill.totalPrice(payment);
+    }
+
+    public void leave() {
+        bill = new Bill();
+    }
+
+    public Map<Menu, Integer> bill() {
+        return this.bill.getBill();
     }
 
     @Override

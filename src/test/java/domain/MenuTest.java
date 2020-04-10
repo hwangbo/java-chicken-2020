@@ -33,4 +33,10 @@ class MenuTest {
     void isChicken(int index) {
         assertTrue(menus.get(index).isChicken());
     }
+
+    @DisplayName("메뉴의 정보를 문자열로 반환하는 toString 테스트")
+    @Test
+    public void testToString() {
+        assertThat(menus.get(0).toString()).isEqualTo("[치킨] 1 - 후라이드 : 16000원");
+    }
 }
